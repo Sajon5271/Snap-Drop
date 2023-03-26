@@ -113,7 +113,7 @@ const patahaoPriceCalc = async (req, res, next) => {
     );
     res.status(201).send({ priceEstimateData: priceEstimateData.data.data });
   } catch (err) {
-    console.log(err);
+    console.log(err.response);
     res.status(400).send({ errorMessage: "Can't get price estimate" });
   }
 };
