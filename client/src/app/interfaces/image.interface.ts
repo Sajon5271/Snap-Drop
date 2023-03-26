@@ -4,7 +4,7 @@ export interface ImageInterface {
   orgFilename: string;
   apiFilename?: string;
   copies: number;
-  imageURL: string;
+  imageURL?: string;
   approved: boolean;
   typeOfImage: 'passport' | 'gallery';
   instructionsForRetake?: string;

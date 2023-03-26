@@ -33,8 +33,8 @@
 </form>
 <div class="gallery-cards-container">
   <app-gallery-card
-    *ngFor="let preview of previews; let i = index"
-    [preview]="preview.data"
+    *ngFor="let preview of galleryImages$ | async; let i = index"
+    [preview]="preview.imageURL || ''"
     [imageForm]="pictureData.at(i)"
     (deleteImage)="removeImage(i)"
   ></app-gallery-card>
