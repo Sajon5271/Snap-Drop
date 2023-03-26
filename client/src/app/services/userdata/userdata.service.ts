@@ -4,12 +4,13 @@ import { Observable } from 'rxjs';
 import { Lab } from 'src/app/interfaces/lab.interface';
 import { Details } from '../../interfaces/details.interface';
 import { User } from '../../interfaces/user.interface';
+import { baseUrl } from 'src/app/config';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserdataService {
-  private baseUrl = 'http://localhost:3000/user';
+  private baseUrl = baseUrl;
 
   constructor(private http: HttpClient) {}
 

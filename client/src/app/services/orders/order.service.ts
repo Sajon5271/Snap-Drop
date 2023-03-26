@@ -3,12 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Order } from 'src/app/interfaces/order.interface';
 import { ImageInterface } from 'src/app/interfaces/image.interface';
+import { baseUrl } from 'src/app/config';
 
 @Injectable({
   providedIn: 'root',
 })
 export class OrderService {
-  private readonly baseUrl = 'http://localhost:3000/order';
+  private readonly baseUrl = baseUrl + '/order';
 
   constructor(private http: HttpClient) {}
 

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { baseUrl } from 'src/app/config';
 import { Cart } from 'src/app/interfaces/cart.interface';
 import { ImageInterface } from 'src/app/interfaces/image.interface';
 import { Price } from 'src/app/interfaces/price.interface';
@@ -9,7 +10,7 @@ import { Price } from 'src/app/interfaces/price.interface';
   providedIn: 'root',
 })
 export class PriceCalculationService {
-  baseUrl = 'http://localhost:3000';
+  baseUrl = baseUrl;
   private picturePrices = [
     {
       size: '4R',

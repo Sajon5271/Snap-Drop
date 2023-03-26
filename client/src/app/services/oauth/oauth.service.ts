@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { baseUrl } from 'src/app/config';
 
 @Injectable({
   providedIn: 'root',
 })
 export class OauthService {
-  private backendRoot = 'http://localhost:3000';
+  private backendRoot = baseUrl;
 
   constructor(private http: HttpClient) {}
 

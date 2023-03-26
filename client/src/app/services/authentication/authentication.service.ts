@@ -3,30 +3,26 @@ import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
+import { baseUrl } from 'src/app/config';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
-  baseUrl = 'http://localhost:3000';
-
   constructor(private http: HttpClient, private jwtHelper: JwtHelperService) {}
 
   login(user: {
     email: string;
     password: string;
   }): Observable<{ access_token: string }> {
-    return this.http.post<{ access_token: string }>(
-      this.baseUrl + '/login',
-      user
-    );
+    return this.http.post<{ access_token: string }>(baseUrl + '/login', user);
   }
   register(user: {
     email: string;
     password: string;
   }): Observable<{ access_token: string }> {
     return this.http.post<{ access_token: string }>(
-      this.baseUrl + '/register',
+      baseUrl + '/register',
       user
     );
   }
@@ -37,7 +33,7 @@ export class AuthenticationService {
     profilePic: string;
   }): Observable<{ access_token: string }> {
     return this.http.post<{ access_token: string }>(
-      this.baseUrl + '/oauthLogin',
+      baseUrl + '/oauthLogin',
       user
     );
   }
@@ -52,7 +48,7 @@ export class AuthenticationService {
   userRole(): Observable<{ role: string }> {
     const jwtToken = this.jwtToken;
     if (jwtToken && !this.jwtHelper.isTokenExpired(jwtToken)) {
-      return this.http.get<{ role: string }>(this.baseUrl + '/userType', {
+      return this.http.get<{ role: string }>(baseUrl + '/userType', {
         headers: {
           Authorization: `Bearer ${this.jwtToken}`,
         },
